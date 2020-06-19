@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_stream_ui/widgits/movie_detail_card.dart';
+import '../widgits/movie_detail_card.dart';
 
 class MovieDetailScreen extends StatelessWidget {
-  static const routeName = 'Movie_Deatils';
+  static const routeName = 'Movie_Details';
 
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
+        ModalRoute.of(context).settings.arguments as Map<String, dynamic>;
 
     return Scaffold(
       backgroundColor: Color(0xFFF4F4F4),
@@ -43,7 +43,8 @@ class MovieDetailScreen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'No Time To Die',
+              routeArgs['title'],
+              textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -57,15 +58,15 @@ class MovieDetailScreen extends StatelessWidget {
               children: [
                 MovieDetailCard(
                   iconData: Icons.timer,
-                  text: '120 min',
+                  text: routeArgs['duration'],
                 ),
                 MovieDetailCard(
-                  iconData: Icons.timer,
-                  text: '120 min',
+                  iconData: Icons.calendar_today,
+                  text: routeArgs['year'],
                 ),
                 MovieDetailCard(
-                  iconData: Icons.timer,
-                  text: '120 min',
+                  iconData: Icons.star,
+                  text: routeArgs['rating'],
                 )
               ],
             ),
@@ -73,7 +74,7 @@ class MovieDetailScreen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, dolorem rem adipisci odit ipsum officiis autem! Laboriosam aperiam architecto ratione!',
+              routeArgs['description'],
               style: TextStyle(
                 fontSize: 18,
                 height: 1.5,

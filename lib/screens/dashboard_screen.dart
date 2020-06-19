@@ -26,7 +26,7 @@ class DashboardScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Recomended',
+                    'Recommended',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class DashboardScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: Movie.movieList.length,
                 itemBuilder: (context, i) {
-                  Movie.movieList.shuffle();
+                  //Movie.movieList.shuffle();
                   return HorizontalListItem(
                     index: i,
                   );
@@ -81,7 +81,7 @@ class DashboardScreen extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: Movie.bestMovieList.length,
                 itemBuilder: (context, i) {
-                  Movie.bestMovieList.shuffle();
+                  //Movie.bestMovieList.shuffle();
                   return VerticalListItem(index: i);
                 },
               ),
@@ -112,9 +112,9 @@ class DashboardScreen extends StatelessWidget {
               height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: Movie.movieList.length,
+                itemCount: Movie.topRatedMovieList.length,
                 itemBuilder: (context, i) {
-                  Movie.topRatedMovieList.shuffle();
+                  //Movie.topRatedMovieList.shuffle();
                   return TopRatedListItem(
                     index: i,
                   );
